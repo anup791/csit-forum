@@ -19,7 +19,6 @@ class UsersTableSeeder extends Seeder
             $category->threads()->saveMany(factory(Thread::class,10)->make());
 
             foreach ($category->threads as $thread){
-
                 $thread->replies()->saveMany(factory(\App\Reply::class,5)->make());
 
             }

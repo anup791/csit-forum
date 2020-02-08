@@ -15,7 +15,8 @@ class Thread extends Model
         return $this->belongsToMany(Category::class,'categories_threads');
     }
 
-    public function replies(){
+    public function replies()
+    {
         return $this->morphMany('App\Reply','repliable');
     }
 }

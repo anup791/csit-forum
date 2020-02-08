@@ -3,25 +3,22 @@
 @section('content')
     <div class="flex items-center">
         <div class="md:w-1/2 md:mx-auto">
-
-            @if (session('status'))
-                <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
-
-            <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md">
-
-                <div class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 mb-0">
-                    Dashboard
-                </div>
-
-                <div class="w-full p-6">
-                    <p class="text-gray-700">
-                        You are logged in!
-                    </p>
-                </div>
+            @foreach($threads as $thread)
+            <div class="flex mb-4 p-4 break-words bg-white border border-2 rounded shadow-md p-4">
+                    <div class="avatar w-24 h-24 rounded-full border-4 border-grey-300 flex-shrink-0">
+                        <img src="" alt="">
+                    </div>
+                        <div class="flex flex-col ml-4">
+                            <a href="" class="title font-bold text-lg text-grey-800 ">{{$thread->title}}</a>
+                                <p class="mt-4 text-md text-gray-700">
+                                    {{$thread->description}}
+                                </p>
+                            <div class="mt-4 text-gray-500">
+                                {{ $thread->replies->count() }} replies
+                            </div>
+                        </div>
             </div>
+                @endforeach
         </div>
     </div>
 @endsection
